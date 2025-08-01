@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imperium Marketing e Software | Link na Bio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: radial-gradient(ellipse at top, #0F172A 0%, #1E293B 50%, #0F172A 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .container {
+            max-width: 420px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Animated background elements */
+        .bg-decoration {
+            position: fixed;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: conic-gradient(from 0deg, 
+                rgba(120, 119, 198, 0.4) 0deg, 
+                rgba(255, 119, 198, 0.3) 120deg, 
+                rgba(120, 219, 255, 0.4) 240deg, 
+                rgba(120, 119, 198, 0.4) 360deg
+            );
+            animation: float 8s ease-in-out infinite;
+            z-index: 1;
+            filter: blur(60px);
+        }
+
+        .bg-decoration:nth-child(1) {
+            top: 5%;
+            left: -100px;
+            animation-delay: 0s;
+        }
+
+        .bg-decoration:nth-child(2) {
+            bottom: 10%;
+            right: -100px;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% { 
+                transform: translateY(0px) rotate(0deg) scale(1); 
+                opacity: 0.6;
+            }
+            50% { 
+                transform: translateY(-30px) rotate(180deg) scale(1.1); 
+                opacity: 0.8;
+            }
+        }
+
+        /* Profile Header */
+        .profile-header {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(15, 23, 42, 0.4);
+            backdrop-filter: blur(25px);
+            border-radius: 30px;
+            box-shadow: 
+                0 25px 50px -12px rgba(0, 0, 0, 0.6),
+                0 0 0 1px rgba(255, 255, 255, 0.05),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 10;
+            border: 1px solid rgba(120, 119, 198, 0.2);
+            overflow: hidden;
+        }
+
+        .profile-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        }
+
+        .profile-header::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent 340deg, rgba(120, 119, 198, 0.1) 360deg);
+            animation: rotate 8s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes rotate {
+            to { transform: rotate(360deg); }
+        }
+
+        .logo {
+            width: 100px;
+            height: auto;
+            margin-bottom: 15px;
+            border-radius: 50%;
+            padding: 15px;
+            background: linear-gradient(135deg, rgba(120, 119, 198, 0.3), rgba(255, 119, 198, 0.3));
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05) rotate(5deg);
+            box-shadow: 0 12px 40px rgba(120, 119, 198, 0.4);
+        }
+
+        .profile-name {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 50%, #cbd5e1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+        }
+
+        .profile-tagline {
+            font-size: 1rem;
+            color: #94a3b8;
+            font-weight: 400;
+            margin-bottom: 15px;
+            text-shadow: 0 0 20px rgba(148, 163, 184, 0.5);
+        }
+
+        .profile-description {
+            font-size: 0.9rem;
+            color: #cbd5e1;
+            line-height: 1.6;
+            text-shadow: 0 0 15px rgba(203, 213, 225, 0.3);
+        }
+
+        /* Link Cards */
+        .links-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            position: relative;
+            z-index: 10;
+        }
+
+        @media (min-width: 481px) {
+            .links-container {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+
+        .link-card {
+            background: rgba(15, 23, 42, 0.3);
+            backdrop-filter: blur(25px);
+            border-radius: 20px;
+            padding: 18px;
+            text-decoration: none;
+            color: inherit;
+            box-shadow: 
+                0 20px 25px -5px rgba(0, 0, 0, 0.4),
+                0 10px 10px -5px rgba(0, 0, 0, 0.2),
+                0 0 0 1px rgba(255, 255, 255, 0.05),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(120, 119, 198, 0.2);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            min-height: 120px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        @media (min-width: 481px) {
+            .link-card {
+                border-radius: 24px;
+                padding: 22px;
+                min-height: auto;
+            }
+        }
+
+        .link-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(120, 119, 198, 0.1), 
+                rgba(255, 119, 198, 0.1), 
+                transparent
+            );
+            transition: left 0.8s ease;
+        }
+
+        .link-card:hover::before {
+            left: 100%;
+        }
+
+        .link-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 
+                0 32px 40px -8px rgba(0, 0, 0, 0.5),
+                0 0 30px rgba(120, 119, 198, 0.3),
+                0 0 0 1px rgba(255, 255, 255, 0.1);
+            border-color: rgba(120, 119, 198, 0.4);
+        }
+
+        .link-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+
+        @media (max-width: 480px) {
+            .link-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 8px;
+            }
+        }
+
+        @media (min-width: 481px) {
+            .link-header {
+                gap: 15px;
+                margin-bottom: 12px;
+            }
+        }
+
+        .link-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        @media (min-width: 481px) {
+            .link-icon {
+                width: 50px;
+                height: 50px;
+                border-radius: 15px;
+                font-size: 1.3rem;
+            }
+        }
+
+        .whatsapp-card .link-icon {
+            background: linear-gradient(135deg, #10b981, #059669);
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
+        }
+
+        .portfolio-card .link-icon {
+            background: linear-gradient(135deg, #6366f1, #4f46e5);
+            box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
+        }
+
+        .services-card .link-icon {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            box-shadow: 0 0 20px rgba(245, 158, 11, 0.4);
+        }
+
+        .testimonials-card .link-icon {
+            background: linear-gradient(135deg, #06b6d4, #0891b2);
+            box-shadow: 0 0 20px rgba(6, 182, 212, 0.4);
+        }
+
+        .social-card .link-icon {
+            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+        }
+
+        .about-card .link-icon {
+            background: linear-gradient(135deg, #eab308, #ca8a04);
+            color: #0f172a;
+            box-shadow: 0 0 20px rgba(234, 179, 8, 0.4);
+        }
+
+        .link-content h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #f8fafc;
+            margin-bottom: 4px;
+            text-shadow: 0 0 10px rgba(248, 250, 252, 0.3);
+            line-height: 1.2;
+        }
+
+        .link-content p {
+            font-size: 0.75rem;
+            color: #94a3b8;
+            line-height: 1.3;
+            text-shadow: 0 0 8px rgba(148, 163, 184, 0.2);
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        @media (min-width: 481px) {
+            .link-content h3 {
+                font-size: 1.1rem;
+                margin-bottom: 5px;
+                line-height: 1.3;
+            }
+
+            .link-content p {
+                font-size: 0.85rem;
+                line-height: 1.5;
+                -webkit-line-clamp: unset;
+                overflow: visible;
+            }
+        }
+
+        .link-badge {
+            position: absolute;
+            top: 8px;
+            right: 10px;
+            background: linear-gradient(135deg, #06ffa5, #00d4aa);
+            color: #0f172a;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.6rem;
+            font-weight: 700;
+            box-shadow: 0 0 15px rgba(6, 255, 165, 0.6);
+            animation: pulse 2s infinite;
+        }
+
+        @media (min-width: 481px) {
+            .link-badge {
+                top: 12px;
+                right: 15px;
+                padding: 5px 10px;
+                border-radius: 15px;
+                font-size: 0.7rem;
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { 
+                box-shadow: 0 0 15px rgba(6, 255, 165, 0.6);
+                transform: scale(1);
+            }
+            50% { 
+                box-shadow: 0 0 25px rgba(6, 255, 165, 0.8);
+                transform: scale(1.05);
+            }
+        }
+
+        /* Social Media Links */
+        .social-links {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-top: 25px;
+            position: relative;
+            z-index: 10;
+        }
+
+        @media (min-width: 481px) {
+            .social-links {
+                gap: 15px;
+                margin-top: 30px;
+            }
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 55px;
+            height: 55px;
+            background: rgba(15, 23, 42, 0.4);
+            backdrop-filter: blur(25px);
+            border-radius: 18px;
+            text-decoration: none;
+            font-size: 1.3rem;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 
+                0 15px 35px rgba(0, 0, 0, 0.3),
+                0 0 0 1px rgba(255, 255, 255, 0.05),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(120, 119, 198, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        @media (min-width: 481px) {
+            .social-link {
+                width: 65px;
+                height: 65px;
+                border-radius: 22px;
+                font-size: 1.5rem;
+            }
+        }
+
+        .social-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .social-link:hover::before {
+            opacity: 1;
+        }
+
+        .social-link:hover {
+            transform: translateY(-8px) rotate(8deg) scale(1.1);
+            box-shadow: 
+                0 25px 50px rgba(0, 0, 0, 0.4),
+                0 0 30px rgba(120, 119, 198, 0.3);
+        }
+
+        .instagram { 
+            color: #e4405f; 
+            text-shadow: 0 0 15px rgba(228, 64, 95, 0.5);
+        }
+        .behance { 
+            color: #1769ff; 
+            text-shadow: 0 0 15px rgba(23, 105, 255, 0.5);
+        }
+        .elo7 { 
+            color: #ff6b35; 
+            text-shadow: 0 0 15px rgba(255, 107, 53, 0.5);
+        }
+        .user { 
+            color: #94a3b8; 
+            text-shadow: 0 0 15px rgba(148, 163, 184, 0.5);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 35px 20px;
+            color: rgba(148, 163, 184, 0.8);
+            font-size: 0.8rem;
+            position: relative;
+            z-index: 10;
+            text-shadow: 0 0 10px rgba(148, 163, 184, 0.3);
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(120, 119, 198, 0.8), 
+                rgba(255, 119, 198, 0.6), 
+                rgba(120, 219, 255, 0.8), 
+                transparent
+            );
+            border-radius: 3px;
+            box-shadow: 0 0 15px rgba(120, 119, 198, 0.5);
+        }
+
+        /* Responsive */
+        @media (max-width: 480px) {
+            .container {
+                padding: 15px;
+                max-width: 100%;
+            }
+            
+            .profile-header {
+                padding: 25px 15px;
+                margin-bottom: 20px;
+            }
+
+            .profile-name {
+                font-size: 1.5rem;
+            }
+
+            .profile-tagline {
+                font-size: 0.9rem;
+            }
+
+            .profile-description {
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Loading animation */
+        .link-card {
+            animation: slideUp 0.6s ease-out;
+            animation-fill-mode: both;
+        }
+
+        .link-card:nth-child(1) { animation-delay: 0.1s; }
+        .link-card:nth-child(2) { animation-delay: 0.2s; }
+        .link-card:nth-child(3) { animation-delay: 0.3s; }
+        .link-card:nth-child(4) { animation-delay: 0.4s; }
+        .link-card:nth-child(5) { animation-delay: 0.5s; }
+        .link-card:nth-child(6) { animation-delay: 0.6s; }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px) scale(0.95);
+                filter: blur(5px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+                filter: blur(0px);
+            }
+        }
+
+        /* Adicionar efeito parallax nos ícones */
+        .link-icon {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .link-card:hover .link-icon {
+            transform: scale(1.1) rotate(-5deg);
+            filter: brightness(1.2);
+        }
+
+        /* Efeito de brilho nos textos */
+        .link-content h3, .profile-name {
+            position: relative;
+        }
+
+        .link-content h3::after, .profile-name::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(255, 255, 255, 0.1) 50%, 
+                transparent 100%
+            );
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+
+        .link-card:hover .link-content h3::after,
+        .profile-header:hover .profile-name::after {
+            transform: translateX(100%);
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-decoration"></div>
+    <div class="bg-decoration"></div>
+    
+    <div class="container">
+        <!-- Profile Header -->
+        <div class="profile-header">
+            <img src="VPRlC1jlobvD2tdvWqOkG" alt="Imperium Logo" class="logo">
+            <h1 class="profile-name">Imperium Marketing</h1>
+            <p class="profile-tagline">🎯 Transformamos Ideias em Soluções Digitais</p>
+            <p class="profile-description">Design de Alto Impacto + WebApps personalizados para negócios que querem crescer online</p>
+        </div>
+
+        <!-- Links Container -->
+        <div class="links-container">
+            <!-- WhatsApp Contact -->
+            <a href="https://wa.me/5598984966362" class="link-card whatsapp-card">
+                <div class="link-badge">NOVO</div>
+                <div class="link-header">
+                    <div class="link-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <div class="link-content">
+                        <h3>💬 Fale Conosco no WhatsApp</h3>
+                        <p>Tire suas dúvidas e solicite seu orçamento gratuito</p>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Services -->
+            <a href="#services" class="link-card services-card" onclick="openModal('servicesModal')">
+                <div class="link-header">
+                    <div class="link-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <div class="link-content">
+                        <h3>🚀 Nossos Serviços</h3>
+                        <p>Design Gráfico, WebApps e Landing Pages profissionais</p>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Portfolio -->
+            <a href="#portfolio" class="link-card portfolio-card" onclick="openModal('portfolioModal')">
+                <div class="link-header">
+                    <div class="link-icon">
+                        <i class="fas fa-folder-open"></i>
+                    </div>
+                    <div class="link-content">
+                        <h3>📁 Portfólio Completo</h3>
+                        <p>Veja nossos projetos de design e desenvolvimento</p>
+                    </div>
+                </div>
+            </a>
+
+            <!-- About -->
+            <a href="#about" class="link-card about-card" onclick="openModal('aboutModal')">
+                <div class="link-header">
+                    <div class="link-icon">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <div class="link-content">
+                        <h3>👑 Sobre a Imperium</h3>
+                        <p>Conheça nossa história e metodologia de trabalho</p>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Testimonials -->
+            <a href="#testimonials" class="link-card testimonials-card" onclick="openModal('testimonialsModal')">
+                <div class="link-header">
+                    <div class="link-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <div class="link-content">
+                        <h3>⭐ Depoimentos</h3>
+                        <p>O que nossos clientes falam sobre nosso trabalho</p>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Email Contact -->
+            <a href="mailto:imperiummdatende@gmail.com" class="link-card social-card">
+                <div class="link-header">
+                    <div class="link-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="link-content">
+                        <h3>📧 E-mail Profissional</h3>
+                        <p>imperiummdatende@gmail.com</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- Social Media Links -->
+        <div class="social-links">
+            <a href="https://gersongc7733.github.io/Imperiummda/" class="social-link instagram" title="Instagram" target="_blank">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="social-link behance" title="Behance">
+                <i class="fab fa-behance"></i>
+            </a>
+            <a href="#" class="social-link elo7" title="Elo7">
+                <i class="fas fa-store"></i>
+            </a>
+            <a href="#" class="social-link user" title="@gcgerson.carlos">
+                <i class="fas fa-user"></i>
+            </a>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>© 2024 Imperium Marketing e Software<br>Transformando ideias em realidade digital</p>
+        </div>
+    </div>
+
+    <!-- Modais -->
+    <!-- Modal - Serviços -->
+    <div id="servicesModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close-btn" onclick="closeModal('servicesModal')">&times;</span>
+                <h2 class="modal-title">🚀 Nossos Serviços</h2>
+            </div>
+            <div class="modal-body">
+                <div class="service-item">
+                    <h3>🎨 Design Gráfico e Social Media</h3>
+                    <ul>
+                        <li>Criação de eBooks, catálogos e materiais gráficos</li>
+                        <li>Identidade visual e branding completo</li>
+                        <li>Posts profissionais para redes sociais</li>
+                        <li>Banners e campanhas publicitárias</li>
+                    </ul>
+                </div>
+                
+                <div class="service-item">
+                    <h3>💻 Desenvolvimento de WebApps</h3>
+                    <ul>
+                        <li>Sistemas personalizados para seu negócio</li>
+                        <li>E-commerce e plataformas de vendas</li>
+                        <li>Apps de delivery e agendamento</li>
+                        <li>CRM e dashboards analíticos</li>
+                    </ul>
+                </div>
+                
+                <div class="service-item">
+                    <h3>🌐 Landing Pages e Sites</h3>
+                    <ul>
+                        <li>Sites otimizados para conversão</li>
+                        <li>Landing pages para vendas</li>
+                        <li>Portfólios profissionais</li>
+                        <li>Sites institucionais</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal - Portfólio -->
+    <div id="portfolioModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close-btn" onclick="closeModal('portfolioModal')">&times;</span>
+                <h2 class="modal-title">📁 Nosso Portfólio</h2>
+            </div>
+            <div class="modal-body">
+                <div class="portfolio-category">
+                    <h3>📱 Projetos de Design Realizados</h3>
+                    <div class="project-list">
+                        <div class="project-preview">
+                            <img src="keys/portfolio-design-preview?prompt=Collage de projetos de design gráfico brasileiro incluindo logos, catálogos, posts para redes sociais e materiais promocionais" alt="Projetos de Design" style="width: 100%; border-radius: 10px; margin: 10px 0;">
+                        </div>
+                        <ul>
+                            <li>✅ Identidade Visual - Restaurante Sabor & Arte</li>
+                            <li>✅ E-book - Guia do Investidor Iniciante</li>
+                            <li>✅ Social Media - Clínica Estética Beleza+</li>
+                            <li>✅ Catálogo Digital - Móveis Modernos</li>
+                            <li>✅ Campanhas - Black Friday Tech</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="portfolio-category">
+                    <h3>🖥️ WebApps Desenvolvidos</h3>
+                    <div class="project-list">
+                        <div class="project-preview">
+                            <img src="keys/portfolio-webapps-preview?prompt=Mockups de aplicações web brasileiras incluindo sistemas de agendamento, e-commerce, delivery e dashboards" alt="WebApps" style="width: 100%; border-radius: 10px; margin: 10px 0;">
+                        </div>
+                        <ul>
+                            <li>✅ Sistema de Agendamentos - Salão VIP</li>
+                            <li>✅ E-commerce - AutoPeças Express</li>
+                            <li>✅ App Delivery - Pizzaria do Bairro</li>
+                            <li>✅ CRM - Imobiliária Prime</li>
+                            <li>✅ Dashboard - Marketing Digital Pro</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal - Sobre -->
+    <div id="aboutModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close-btn" onclick="closeModal('aboutModal')">&times;</span>
+                <h2 class="modal-title">👑 Sobre a Imperium</h2>
+            </div>
+            <div class="modal-body">
+                <div class="about-content">
+                    <h3>🎯 Nossa Missão</h3>
+                    <p>Transformar ideias em soluções visuais e digitais que geram resultados reais para nossos clientes.</p>
+                    
+                    <h3>⚡ Nossa Metodologia</h3>
+                    <ul>
+                        <li>📋 Análise detalhada do seu negócio</li>
+                        <li>🎨 Design personalizado e exclusivo</li>
+                        <li>💻 Desenvolvimento 100% sob medida</li>
+                        <li>🚀 Entrega rápida e suporte contínuo</li>
+                    </ul>
+                    
+                    <h3>🏆 Diferenciais</h3>
+                    <ul>
+                        <li>✨ Design de alto impacto visual</li>
+                        <li>📱 Sistemas responsivos e modernos</li>
+                        <li>🛠️ Tecnologia de ponta</li>
+                        <li>👥 Atendimento personalizado</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal - Depoimentos -->
+    <div id="testimonialsModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close-btn" onclick="closeModal('testimonialsModal')">&times;</span>
+                <h2 class="modal-title">⭐ Depoimentos</h2>
+            </div>
+            <div class="modal-body">
+                <div class="testimonials-container">
+                    <div class="testimonial-item">
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                        <p>"A Imperium entregou meu sistema 100% funcional, com visual top! Superou todas as expectativas."</p>
+                        <strong>— Cliente Satisfeito</strong>
+                    </div>
+                    
+                    <div class="testimonial-item">
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                        <p>"Design incrível e atendimento nota 10! Meu negócio cresceu muito depois do site novo."</p>
+                        <strong>— Empresário Local</strong>
+                    </div>
+                    
+                    <div class="testimonial-item">
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                        <p>"Profissionais competentes e criativos. Recomendo para todos que querem qualidade!"</p>
+                        <strong>— Empreendedora</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(26, 26, 46, 0.95);
+            backdrop-filter: blur(10px);
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            max-width: 90%;
+            max-height: 90%;
+            overflow-y: auto;
+            position: relative;
+            animation: modalSlideIn 0.4s ease-out;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .modal-header {
+            padding: 30px;
+            border-bottom: 2px solid rgba(255, 215, 0, 0.2);
+            text-align: center;
+        }
+
+        .modal-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #1a1a2e 0%, #0f3460 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 0;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 2rem;
+            color: #999;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .close-btn:hover {
+            color: #1a1a2e;
+        }
+
+        .modal-body {
+            padding: 30px;
+        }
+
+        .service-item, .portfolio-category, .about-content {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 15px;
+            border-left: 4px solid #ffd700;
+        }
+
+        .service-item h3, .portfolio-category h3, .about-content h3 {
+            color: #1a1a2e;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .service-item ul, .portfolio-category ul, .about-content ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .service-item li, .portfolio-category li, .about-content li {
+            padding: 8px 0;
+            color: #333;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .service-item li:before, .about-content li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #1a1a2e;
+            font-weight: bold;
+        }
+
+        .testimonial-item {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            border-left: 4px solid #ffd700;
+        }
+
+        .stars {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .testimonial-item p {
+            font-style: italic;
+            color: #333;
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .testimonial-item strong {
+            color: #1a1a2e;
+        }
+
+        @media (max-width: 768px) {
+            .modal-content {
+                max-width: 95%;
+                margin: 20px;
+            }
+
+            .modal-header, .modal-body {
+                padding: 20px;
+            }
+        }
+    </style>
+
+    <script>
+        // Modal functions
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // Close modal when clicking outside
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('modal')) {
+                e.target.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const activeModal = document.querySelector('.modal.active');
+                if (activeModal) {
+                    activeModal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                // Only prevent default and scroll if it's a valid selector (not just "#")
+                if (href && href.length > 1) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+                // For links with just "#", let them work normally (they won't scroll)
+            });
+        });
+
+        // Add loading animation
+        window.addEventListener('load', function() {
+            document.body.classList.add('loaded');
+        });
+    </script>
+</body>
+</html>
